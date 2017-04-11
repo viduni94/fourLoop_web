@@ -17,7 +17,32 @@
     <!---->
 
     <!--include projets -->
-    <% include components/projects.ejs %>
+    <section id="portfolio" class="section-padding wow fadeInUp delay-05s">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2 class="service-title pad-bt15">Our Recent Works</h2>
+                    <p class="sub-title pad-bt15">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br>tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <hr class="bottom-line">
+                </div>
+
+                <% for(var i=0; i<project.length; i++) {%>
+
+                <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15">
+                    <figure>
+                        <img src="/project/<%= project[i].image %>" class="img-responsive">
+                        <figcaption>
+                            <h2><%= project[i].name %></h2>
+                            <p><%= project[i].description %></p>
+                        </figcaption>
+                    </figure>
+                </div>
+
+                <% } %>
+
+            </div>
+        </div>
+    </section>
     <!---->
 
     <!--include blogs -->
