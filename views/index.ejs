@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include includes/css.ejs %>
+
+</head>
+<body>
+<div class="loader"></div>
+<div id="myDiv">
+
+    <!--include header-->
+    <% include components/navbar.ejs %>
+    <!---->
+
+    <!--include services -->
+    <% include components/services.ejs %>
+    <!---->
+
+    <!--include projets -->
+    <% include components/projects.ejs %>
+    <!---->
+
+    <!--include blogs -->
+    <% include components/blogs.ejs %>
+    <!---->
+
+    <!--team members-->
+    <section id="team" class="section-padding wow fadeInUp delay-05s">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2 class="service-title pad-bt15">Meet Our Team</h2>
+                    <p class="sub-title pad-bt15">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br>tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <hr class="bottom-line">
+                </div>
+
+                <% for(var i=0; i<team.length; i++) {%>
+
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div>
+                        <img src="/public/website/img/male.png" class="img-responsive img-circle">
+                    </div>
+                    <div class="blog-info" style="text-align: center">
+                        <h2><%= team[i].name %></h2>
+                        <p><%= team[i].possition %></p>
+                    </div>
+                </div>
+
+                <% } %>
+
+            </div>
+        </div>
+    </section>
+    <!---->
+
+    <!--include contact details-->
+    <% include components/contact.ejs %>
+    <!---->
+
+    <!--include footer  -->
+    <% include components/footer.ejs %>
+    <!---->
+</div>
+
+<!--include all js-->
+<% include includes/js.ejs %>
+<!---->
+
+</body>
+</html>
