@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-12 text-center white">
                 <h2 class="service-title pad-bt15">Keep in touch with us</h2>
-                <p class="sub-title pad-bt15">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br>tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p class="sub-title pad-bt15">Get in touch with our team for further information and clarifications.<br>Contact us via the form below and we will get back to you shortly!</p>
                 <hr class="bottom-line white-bg">
             </div>
             <div class="col-md-6 col-sm-6 col-xs-12">
@@ -20,25 +20,27 @@
                     <form action="" method="post" role="form" class="contactForm">
                         <div class="col-md-6 padding-right-zero">
                             <div class="form-group">
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" onchange="changeName()"/>
+                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name *" onchange="changeName()"/>
+                                <label style="color: red; font-size: 12px" id="for_name">Name can only contain letters</label>
                                 <div class="validation"></div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" onchange="changeEmail()"/>
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email *" onchange="changeEmail()"/>
+                                <label style="color: red; font-size: 12px" id="for_email">Enter a valid email</label>
                                 <div class="validation"></div>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" onchange="changeSubject()"/>
+                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject *" onchange="changeSubject()"/>
                                 <div class="validation"></div>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <textarea class="form-control" name="message" id="message" rows="5"  placeholder="Message" onchange="changeMessage()"></textarea>
+                                <textarea class="form-control" name="message" id="message" rows="5"  placeholder="Message *" onchange="changeMessage()"></textarea>
                                 <div class="validation"></div>
                             </div>
                             <div>

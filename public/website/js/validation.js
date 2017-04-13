@@ -4,6 +4,8 @@
 
 $( document ).ready(function() {
     document.getElementById("submit").disabled = true;
+    document.getElementById("for_name").style.display = "none";
+    document.getElementById("for_email").style.display = "none";
 });
 
 //disable or enable submit button
@@ -37,11 +39,15 @@ function changeData() {
 //onchange name
 function changeName() {
     changeData();
-    if(document.getElementById("name").value==""){
+    var letters = /^[A-Za-z]+$/;
+    var name = document.getElementById("name").value;
+    if(name == "" || !name.match(letters)){
         document.getElementById("name").style.borderColor="red";
+        document.getElementById("for_name").style.display = "inline";
     }
     else{
         document.getElementById("name").style.borderColor="#0066FF";
+        document.getElementById("for_name").style.display = "none";
     }
 }
 
@@ -53,9 +59,11 @@ function changeEmail() {
     var dotpos = email.lastIndexOf(".");
     if (atpos<1 || dotpos<atpos+2 || dotpos+2>=email.length) {
         document.getElementById("email").style.borderColor="red";
+        document.getElementById("for_email").style.display = "inline";
     }
     else{
         document.getElementById("email").style.borderColor="#0066FF";
+        document.getElementById("for_email").style.display = "none";
     }
 }
 
