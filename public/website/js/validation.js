@@ -2,6 +2,11 @@
  * Created by savinda on 4/11/17.
  */
 
+$( document ).ready(function() {
+    document.getElementById("submit").disabled = true;
+});
+
+//disable or enable submit button
 function changeData() {
     console.log('Changed');
 
@@ -9,30 +14,27 @@ function changeData() {
     var atpos = email.indexOf("@");
     var dotpos = email.lastIndexOf(".");
     if (atpos<1 || dotpos<atpos+2 || dotpos+2>=email.length) {
-        document.getElementById("email").style.borderColor="red";
+        document.getElementById("submit").disabled = true;
     }
 
     else if (document.getElementById("name").value == "") {
         document.getElementById("submit").disabled = true;
-        console.log('3');
     }
 
     else if (document.getElementById("subject").value == "") {
         document.getElementById("submit").disabled = true;
-        console.log('5');
     }
 
     else if (document.getElementById("message").value == "") {
         document.getElementById("submit").disabled = true;
-        console.log('6');
     }
 
     else {
         document.getElementById("submit").disabled = false;
-        console.log('2');
     }
 }
 
+//onchange name
 function changeName() {
     changeData();
     if(document.getElementById("name").value==""){
@@ -43,6 +45,7 @@ function changeName() {
     }
 }
 
+//onchange email
 function changeEmail() {
     changeData();
     var email = document.getElementById("email").value;
@@ -56,6 +59,7 @@ function changeEmail() {
     }
 }
 
+//onchange sublect
 function changeSubject() {
     changeData();
     if(document.getElementById("subject").value==""){
@@ -67,6 +71,7 @@ function changeSubject() {
 
 }
 
+//onchange message
 function changeMessage() {
     changeData();
     if(document.getElementById("message").value==""){

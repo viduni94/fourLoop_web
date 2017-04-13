@@ -48,13 +48,13 @@ app.get('/', function(req, res) {
     db.collection('team').find().toArray(function(err, result) {
         if (err) return console.log(err);
 
-        var members= [];
-
-        for(var i = 0; i < result.length; i++){
-            var temp = {"member_id":result[i]._id};
-            members[i]=temp;
-        }
-        console.log(members);
+        // var members= [];
+        //
+        // for(var i = 0; i < result.length; i++){
+        //     var temp = {"member_id":result[i]._id};
+        //     members[i]=temp;
+        // }
+        // console.log(members);
 
         db.collection('project').find().limit(3).toArray(function (err1, result1) {
             if (err) return console.log(err1);
