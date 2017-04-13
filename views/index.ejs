@@ -26,19 +26,26 @@
                     <hr class="bottom-line">
                 </div>
 
-                <% for(var i=0; i<project.length; i++) {%>
+                <!--project content-->
+                <div id="project">
 
-                <div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15">
-                    <figure>
-                        <img src="/project/<%= project[i].image %>" class="img-responsive">
-                        <figcaption>
-                            <h2><%= project[i].name %></h2>
-                            <p><%= project[i].description %></p>
-                        </figcaption>
-                    </figure>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div style="margin-top: 60px; margin-bottom: 60px">
+                            <div class="loading" style="margin: auto"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div style="margin-top: 60px; margin-bottom: 60px">
+                            <div class="loading" style="margin: auto"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div style="margin-top: 60px; margin-bottom: 60px">
+                            <div class="loading" style="margin: auto"></div>
+                        </div>
+                    </div>
+
                 </div>
-
-                <% } %>
 
             </div>
         </div>
@@ -46,7 +53,29 @@
     <!---->
 
     <!--include blogs -->
-    <% include components/blogs.ejs %>
+    <section id="blog" class="section-padding wow fadeInUp delay-05s">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2 class="service-title pad-bt15">Latest from our blog</h2>
+                    <p class="sub-title pad-bt15">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br>tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <hr class="bottom-line">
+                </div>
+
+                <% for(var i=0; i<team.length; i++) {%>
+
+                <div class="col-md-3 col-sm-6 col-xs-12" id="b_<%= i %>">
+                    <input type="hidden" value="<%= team[i]._id %>">
+                    <div style="margin-top: 60px; margin-bottom: 60px">
+                        <div class="loading" style="margin: auto"></div>
+                    </div>
+                </div>
+
+                <% } %>
+
+            </div>
+        </div>
+    </section>
     <!---->
 
     <!--team members-->

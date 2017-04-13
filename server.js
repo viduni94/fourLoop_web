@@ -47,19 +47,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.get('/', function(req, res) {
     db.collection('team').find().toArray(function(err, result) {
         if (err) return console.log(err);
-
-        // var members= [];
-        //
-        // for(var i = 0; i < result.length; i++){
-        //     var temp = {"member_id":result[i]._id};
-        //     members[i]=temp;
-        // }
-        // console.log(members);
-
-        db.collection('project').find().limit(3).toArray(function (err1, result1) {
-            if (err) return console.log(err1);
-            res.render('index.ejs', {team: result, project: result1});
-        });
+        res.render('index.ejs', {team: result});
     });
 });
 
@@ -70,4 +58,25 @@ app.post('/contact', function(req, res){
         console.log('saved to database');
         res.redirect('/');
     });
+});
+
+app.post('/project', function(req, res){
+    db.collection('project').find().limit(3).toArray(function (err, result) {
+        if (err) return console.log(err);
+
+        var response = '';
+
+        for(var i=0; i<result.length; i++) {
+
+            response += '<div class="col-md-4 col-sm-6 col-xs-12 portfolio-item padding-right-zero mr-btn-15">' +
+                '<figure><img src="/project/' + result[i].image+'" class="img-responsive"><figcaption>' +
+                '<h2>'+result[i].name+'</h2>' +
+                '<p>'+result[i].description+'</p>' +
+                '</figcaption></figure></div>';
+
+        }
+
+        res.send(response);
+    });
+
 });
