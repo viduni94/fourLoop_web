@@ -80,3 +80,21 @@ app.post('/project', function(req, res){
     });
 
 });
+
+app.post('/blog', function(req, res){
+    var memberID = req.body.memberId;
+
+    db.collection('blog').find({'member_id' : memberID}).limit(1).toArray(function (err, result) {
+        if (err) return console.log(err);
+
+        var response = '<div class="blog-sec">' +
+            '<div class="blog-img"><a href=""><img src="/blog/'+ result[0].image +'" class="img-responsive"></a></div>' +
+            '<div class="blog-info"><h2>'+ result[0].name +'</h2><div class="blog-comment">' +
+            '<p><small>Posted In: <span>Legal Advice</span></small></p>' +
+            '<p><span><a href="#"><i class="fa fa-comments"></i></a> '+ result[0].num_comments + ' ' +'</span><span><a href="#"><i class="fa fa-eye"></i></a> '+ result[0].num_views +'</span></p>' +
+            '</div><p><small>'+ result[0].description +'</small></p> ' +
+            '<a href="'+ result[0].link +'" class="read-more">Read more →</a> </div></div>';
+        res.send(response);
+    });
+
+});

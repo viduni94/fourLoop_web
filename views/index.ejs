@@ -62,16 +62,22 @@
                     <hr class="bottom-line">
                 </div>
 
-                <% for(var i=0; i<team.length; i++) {%>
+                <div id="blogPost">
 
-                <div class="col-md-3 col-sm-6 col-xs-12" id="b_<%= i %>">
-                    <input type="hidden" value="<%= team[i]._id %>">
-                    <div style="margin-top: 60px; margin-bottom: 60px">
-                        <div class="loading" style="margin: auto"></div>
+                    <input type="hidden" id="numBlogs" value="<%= team.length %>">
+
+                    <% for(var i=0; i<team.length; i++) {%>
+
+                    <div class="col-md-3 col-sm-6 col-xs-12" id="b_<%= i %>">
+                        <input type="hidden" id="m_<%= i %>" value="<%= team[i]._id %>">
+                        <div style="margin-top: 60px; margin-bottom: 60px">
+                            <div class="loading" style="margin: auto"></div>
+                        </div>
                     </div>
-                </div>
 
-                <% } %>
+                    <% } %>
+
+                </div>
 
             </div>
         </div>

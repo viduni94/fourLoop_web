@@ -8,7 +8,7 @@ $( document ).ready(function() {
         type: "POST",
         url: "/project",
         success: function(msg) {
-            console.log(msg);
+
             $('#project').html(msg);
         }
     });
