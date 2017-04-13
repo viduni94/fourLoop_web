@@ -30,20 +30,17 @@ app.set('view engine', 'ejs');
 app.use('/public',express.static(path.join(__dirname, 'public')));
 app.use('/css',express.static(path.join(__dirname, 'public/website/css')));
 app.use('/js',express.static(path.join(__dirname, 'public/website/js')));
-app.use('/teamMember',express.static(path.join(__dirname, 'public/website/img/team')));
-app.use('/blog',express.static(path.join(__dirname, 'public/website/img/blog')));
-app.use('/project',express.static(path.join(__dirname, 'public/website/img/project')));
+
+app.use('/teamMember',express.static(path.join(__dirname, 'public/website/img/team'))); //team members images
+app.use('/blog',express.static(path.join(__dirname, 'public/website/img/blog'))); // blog images
+app.use('/project',express.static(path.join(__dirname, 'public/website/img/project'))); // project images
 
 //extract data from the form element and add them to the body property in the request object.
 app.use(bodyParser.urlencoded({extended: true}));
 
 
-// app.get('/', function (req,res) {
-//     res.render('/application/view/', locals);
-//     // res.sendFile(__dirname + '/application/view/index.html');
-// });
-
-
+//routes
+//index page
 app.get('/', function(req, res) {
     db.collection('team').find().toArray(function(err, result) {
         if (err) return console.log(err);
@@ -51,6 +48,8 @@ app.get('/', function(req, res) {
     });
 });
 
+
+//save new contact
 app.post('/contact', function(req, res){
     db.collection('contact').save(req.body, function(err, result){
         if (err) return console.log('function err - '+err);
@@ -60,6 +59,7 @@ app.post('/contact', function(req, res){
     });
 });
 
+//get project details from db
 app.post('/project', function(req, res){
     db.collection('project').find().limit(3).toArray(function (err, result) {
         if (err) return console.log(err);
@@ -81,6 +81,7 @@ app.post('/project', function(req, res){
 
 });
 
+//get blog details from db
 app.post('/blog', function(req, res){
     var memberID = req.body.memberId;
 
