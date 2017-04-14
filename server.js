@@ -3,6 +3,7 @@ const express = require('express');
 
 //include body-parser which parse form inputs to controllers
 const bodyParser = require('body-parser');
+const favicon = require('express-favicon');
 
 //include mongodb
 const MongoClient = require('mongodb').MongoClient;
@@ -38,6 +39,8 @@ app.use('/project',express.static(path.join(__dirname, 'public/website/img/proje
 //extract data from the form element and add them to the body property in the request object.
 app.use(bodyParser.urlencoded({extended: true}));
 
+//favicon
+app.use(favicon(__dirname + '/public/favicon.png'));
 
 //routes
 //index page
