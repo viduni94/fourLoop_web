@@ -3,6 +3,12 @@
  */
 
 $( document ).ready(function() {
+
+});
+
+
+
+$( document ).ready(function() {
     document.getElementById("submit").disabled = true;
     document.getElementById("for_name").style.display = "none";
     document.getElementById("for_email").style.display = "none";

@@ -136,3 +136,13 @@ app.post('/blog', function(req, res){
 
 });
 
+app.use(function(req, res) {
+    res.status(404);
+    res.render('errors/404');
+});
+
+app.use(function(error, req, res, next) {
+    res.status(500);
+    res.render('errors/500');
+});
+
