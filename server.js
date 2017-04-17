@@ -4,15 +4,13 @@ const express = require('express');
 //include body-parser which parse form inputs to controllers
 const bodyParser = require('body-parser');
 const favicon = require('express-favicon');
-
-//include mongodb
-const MongoClient = require('mongodb').MongoClient;
-
-//include path
-const path = require('path');
+const MongoClient = require('mongodb').MongoClient; //include mongodb
+const path = require('path'); //include path
 
 const app = express();
 var db;
+
+app.set('view engine', 'ejs');
 
 //connect to mongo server
 MongoClient.connect('mongodb://root:admin@ds157390.mlab.com:57390/team-fourloop', function(err, database) {
@@ -24,8 +22,6 @@ MongoClient.connect('mongodb://root:admin@ds157390.mlab.com:57390/team-fourloop'
         console.log('listening on 3000');
     });
 });
-
-app.set('view engine', 'ejs');
 
 //set path
 app.use('/public',express.static(path.join(__dirname, 'public')));
@@ -42,6 +38,35 @@ app.use(bodyParser.urlencoded({extended: true}));
 //favicon
 app.use(favicon(__dirname + '/public/favicon.png'));
 
+//validate contact form
+function validateContactForm(body) {
+    var email = body.email;
+    var atpos = email.indexOf("@");
+    var dotpos = email.lastIndexOf(".");
+
+    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=email.length) {
+        return false;
+    }
+    else if(body.name == ""){
+        return false;
+    }
+    else if(body.subject == ""){
+        return false;
+    }
+    else if(body.message == ""){
+        return false;
+    }
+    else{
+        return true;
+    }
+
+}
+
+//send email
+function sendMail(email) {
+    console.log(email);
+}
+
 //routes
 //index page
 app.get('/', function(req, res) {
@@ -54,12 +79,20 @@ app.get('/', function(req, res) {
 
 //save new contact
 app.post('/contact', function(req, res){
-    db.collection('contact').save(req.body, function(err, result){
-        if (err) return console.log('function err - '+err);
-
-        console.log('saved to database');
-        res.redirect('/');
-    });
+    if(validateContactForm(req.body)) {
+        db.collection('contact').save(req.body, function (err, result) {
+            if (err) {
+                res.send('fail');
+                return console.log('function err - ' + err);
+            }
+            console.log('saved to database');
+            sendMail(req.body.email);
+            res.send('success');
+        });
+    }
+    else{
+        res.send('fail');
+    }
 });
 
 //get project details from db
@@ -102,3 +135,4 @@ app.post('/blog', function(req, res){
     });
 
 });
+

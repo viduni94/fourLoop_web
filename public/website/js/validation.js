@@ -10,7 +10,6 @@ $( document ).ready(function() {
 
 //disable or enable submit button
 function changeData() {
-    console.log('Changed');
 
     var email = document.getElementById("email").value;
     var atpos = email.indexOf("@");
