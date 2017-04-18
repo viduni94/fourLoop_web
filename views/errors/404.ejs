@@ -1,1 +1,53 @@
-test
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../includes/css.ejs %>
+    <link rel="icon" type="image/x-icon" href="/public/favicon">
+
+</head>
+<body>
+<div class="header">
+    <div class="bg-color">
+        <header id="main-header">
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">TEAM fourLoop</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <div class="content">
+            <div id="large-header" class="header" style="background-image: url('../public/website/img/bg-banner02.jpg'); background-color: #495469; background-blend-mode: multiply;">
+                <canvas id="demo-canvas"></canvas>
+                <div class="main-title" style="margin: 20px">
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+
+                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <img src="/public/website/img/errors/404.png" class="img-responsive">
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="margin-top: 70px">
+                            <h1 style="text-align: left">Oops!</h1><h3>The Page you requested was not found!</h3>
+                            <a type="button" class="btn btn-primary btn-submit" href="/">Go to Home page</a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include ../includes/js.ejs %>
+</body>
+</html>
