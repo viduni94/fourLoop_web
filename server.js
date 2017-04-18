@@ -32,6 +32,7 @@ app.use('/js_admin',express.static(path.join(__dirname, 'public/admin/js')));
 app.use('/assets_admin',express.static(path.join(__dirname, 'public/admin/assets')));
 app.use('/img_admin',express.static(path.join(__dirname, 'public/admin/img')));
 app.use('/fonts_admin',express.static(path.join(__dirname, 'public/admin/fonts')));
+app.use('/custom_js_admin',express.static(path.join(__dirname, 'public/admin/custom_js')));
 
 app.use('/teamMember',express.static(path.join(__dirname, 'public/website/img/team'))); //team members images
 app.use('/blog',express.static(path.join(__dirname, 'public/website/img/blog'))); // blog images
