@@ -2,7 +2,7 @@ function showmessage(){
 	$.gritter.add({
 		title: 'You Have Message!',
 		text: 'You have some mesages from Anyone this time. To read any mesage <a href="#" style="color:#ccc">adn write some </a> letter, Send and Reaply.',
-		image: 'img/user2.png',
+		image: '/img_admin/user2.png',
 		sticky: false,
 		time: ''
 	});
