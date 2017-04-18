@@ -27,6 +27,11 @@ MongoClient.connect('mongodb://root:admin@ds157390.mlab.com:57390/team-fourloop'
 app.use('/public',express.static(path.join(__dirname, 'public')));
 app.use('/css',express.static(path.join(__dirname, 'public/website/css')));
 app.use('/js',express.static(path.join(__dirname, 'public/website/js')));
+app.use('/css_admin',express.static(path.join(__dirname, 'public/admin/css')));
+app.use('/js_admin',express.static(path.join(__dirname, 'public/admin/js')));
+app.use('/assets_admin',express.static(path.join(__dirname, 'public/admin/assets')));
+app.use('/img_admin',express.static(path.join(__dirname, 'public/admin/img')));
+app.use('/fonts_admin',express.static(path.join(__dirname, 'public/admin/fonts')));
 
 app.use('/teamMember',express.static(path.join(__dirname, 'public/website/img/team'))); //team members images
 app.use('/blog',express.static(path.join(__dirname, 'public/website/img/blog'))); // blog images
@@ -76,6 +81,10 @@ app.get('/', function(req, res) {
     });
 });
 
+app.get('/admin_fourLoop', function(req, res) {
+    //res.send('test');
+    res.render('admin/admin_panel.ejs');
+});
 
 //save new contact
 app.post('/contact', function(req, res){
