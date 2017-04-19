@@ -91,9 +91,22 @@ function loadProjects() {
 }
 
 function editMember(id) {
-    alert(id);
 }
 
 function removeMember(id) {
-    alert(id);
+}
+
+function editProject(id) {
+}
+
+function removeProject(id) {
+}
+
+function editBlog(id) {
+}
+
+function removeBlog(id) {
+}
+
+function viewBlog(id) {
 }

@@ -6,7 +6,7 @@ $( document ).ready(function() {
 
     $.ajax({
         type: "POST",
-        url: "/getProjects",
+        url: "/admin_fourLoop/getProjects",
         success: function(msg) {
             $('#div1').hide().html(msg).fadeIn(500);
         }
